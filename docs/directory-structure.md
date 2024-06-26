@@ -1,17 +1,20 @@
-your-package-name/
+html-validator-project/
 │
-├── src/                  # ソースコード
-│   └── index.js          # メインのエントリーポイント
+├── src/
+│   ├── client/              # クライアントサイドのJavaScriptライブラリ
+│   │   └── html-validator.js
+│   │
+│   └── server/              # サーバーサイドのAPI
+│       ├── app.js           # Expressアプリケーションのメインファイル
+│       └── validateHTML.js  # HTML検証ロジックを含む共通モジュール
 │
-├── lib/                  # トランスパイルされたJavaScriptコード (BabelなどでES5に変換されたもの)
+├── dist/                    # ビルドされたファイルが格納されるディレクトリ
+│   ├── html-validator.min.js  # ミニファイ化されたクライアントサイドライブラリ
 │
-├── test/                 # テストファイル
+├── node_modules/            # npmパッケージ
 │
-├── examples/             # 実装例
+├── test/                    # テストスクリプト
 │
-├── docs/                 # ドキュメント
-│
-├── .gitignore            # Gitが無視するファイルのリスト
-├── package.json          # パッケージのメタデータと依存関係
-├── README.md             # パッケージの説明と使用方法
-└── LICENSE               # ライセンスファイル
+├── package.json             # プロジェクトのメタデータと依存関係
+├── .gitignore               # Gitが無視するファイルのリスト
+└── README.md                # プロジェクトの説明と使用方法
