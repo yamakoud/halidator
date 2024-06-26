@@ -24,7 +24,6 @@ class HTMLValidator {
 
   private async validateViaAPI(htmlContent: string): Promise<ValidationIssue[]> {
     // APIを使用したバリデーションのロジックをここに実装
-    // 現時点では仮の実装を返す
     return [{ element: '', message: 'API validation not implemented yet' }];
   }
 
@@ -33,29 +32,47 @@ class HTMLValidator {
     const doc = parser.parseFromString(htmlContent, 'text/html');
     const issues: ValidationIssue[] = [];
 
-    this.checkColWithoutRow(doc, issues);
-    this.checkBtnWithoutBtnGroup(doc, issues);
+    this.checkBlockElementMisuse(doc, issues);
+    this.checkInlineElementMisuse(doc, issues);
 
     return issues;
   }
 
-  private checkColWithoutRow(doc: Document, issues: ValidationIssue[]): void {
-    doc.querySelectorAll('.col').forEach((col: Element) => {
-      if (!col.closest('.row')) {
-        issues.push({
-          element: col.outerHTML,
-          message: 'Column without parent row detected.'
-        });
-      }
+  private checkBlockElementMisuse(doc: Document, issues: ValidationIssue[]): void {
+    const inlineElements = ['a', 'span', 'strong', 'em', 'b', 'i', 'u', 'sub', 'sup'];
+    inlineElements.forEach(inlineTag => {
+      doc.querySelectorAll(inlineTag).forEach((element: Element) => {
+        const hasBlockChild = Array.from(element.children).some(child => 
+          window.getComputedStyle(child).display === 'block');
+        if (hasBlockChild) {
+          issues.push({
+            element: element.outerHTML,
+            message: `Inline element <${inlineTag}> contains a block-level element.`
+          });
+        }
+      });
     });
   }
 
-  private checkBtnWithoutBtnGroup(doc: Document, issues: ValidationIssue[]): void {
-    doc.querySelectorAll('.btn').forEach((btn: Element) => {
-      if (!btn.closest('.btn-group')) {
+  private checkInlineElementMisuse(doc: Document, issues: ValidationIssue[]): void {
+    const blockElements = ['div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'];
+    blockElements.forEach(blockTag => {
+      doc.querySelectorAll(blockTag).forEach((element: Element) => {
+        if (element.childNodes.length === 1 && element.firstChild?.nodeType === Node.TEXT_NODE) {
+          issues.push({
+            element: element.outerHTML,
+            message: `Block element <${blockTag}> contains only text. Consider using an inline element instead.`
+          });
+        }
+      });
+    });
+
+    // 特定のブロック要素のネストチェック
+    doc.querySelectorAll('div').forEach((div: Element) => {
+      if (div.querySelector('p')) {
         issues.push({
-          element: btn.outerHTML,
-          message: 'Button without parent btn-group detected.'
+          element: div.outerHTML,
+          message: 'A <div> element contains a <p> element. Consider restructuring your HTML.'
         });
       }
     });
