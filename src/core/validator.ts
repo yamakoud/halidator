@@ -1,24 +1,11 @@
-// src/halidator.ts
+import { DOMInterface } from '../interfaces/dom-interface';
+import { ValidatorOptions, ValidationIssue } from './types';
 
-import { DOMInterface } from './dom-interface';
-import { createDOM } from './dom-factory';
-
-interface ValidatorOptions {
-  apiEndpoint?: string;
-}
-
-interface ValidationIssue {
-  element: string;
-  message: string;
-}
-
-export class Halidator {
+export class Validator {
   private apiEndpoint: string | null;
-  private dom: DOMInterface;
 
-  constructor(options: ValidatorOptions = {}) {
+  constructor(private dom: DOMInterface, options: ValidatorOptions = {}) {
     this.apiEndpoint = options.apiEndpoint || null;
-    this.dom = createDOM();
   }
 
   async validate(htmlContent: string): Promise<ValidationIssue[]> {
@@ -31,8 +18,8 @@ export class Halidator {
 
   private async validateViaAPI(htmlContent: string): Promise<ValidationIssue[]> {
     // APIを使用したバリデーションのロジックをここに実装
-    // 未実装
-    return [];
+    // 現時点では仮の実装を返す
+    return [{ element: '', message: 'API validation not implemented yet' }];
   }
 
   private validateLocally(htmlContent: string): ValidationIssue[] {
@@ -76,12 +63,4 @@ export class Halidator {
       });
     });
   }
-
-  // validateViaAPI メソッドは変更なし
-}
-
-export default Halidator;
-
-if (typeof window !== 'undefined') {
-  (window as any).Halidator = Halidator;
 }

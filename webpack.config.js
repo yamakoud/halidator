@@ -1,8 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/halidator.ts',
+  entry: './src/browser/index.ts',
   mode: 'production',
   module: {
     rules: [
@@ -15,15 +14,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    fallback: {
-      "vm": false,
-      "url": false,
-      "util": false,
-      "http": false,
-      "https": false,
-      "buffer": false,
-      "string_decoder": false,
-    }
   },
   output: {
     filename: 'halidator.min.js',
@@ -33,9 +23,4 @@ module.exports = {
     libraryExport: 'default',
     globalObject: 'this',
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ]
 };

@@ -1,11 +1,10 @@
-// src/browser-dom.ts
+import { JSDOM } from 'jsdom';
+import { DOMInterface } from '../interfaces/dom-interface';
 
-import { DOMInterface } from './interfaces/dom-interface';
-
-export class BrowserDOM implements DOMInterface {
+export class NodeDOM implements DOMInterface {
   parseHTML(html: string): Document {
-    const parser = new DOMParser();
-    return parser.parseFromString(html, 'text/html');
+    const dom = new JSDOM(html);
+    return dom.window.document;
   }
 
   querySelector(selector: string, element: Element | Document): Element | null {
@@ -21,7 +20,8 @@ export class BrowserDOM implements DOMInterface {
   }
 
   isBlockElement(element: Element): boolean {
-    return window.getComputedStyle(element).display === 'block';
+    const blockElements = ['div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'];
+    return blockElements.includes(element.tagName.toLowerCase());
   }
 
   getNodeType(node: Node): number {

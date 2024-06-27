@@ -36,8 +36,10 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "webpack",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "build:browser": "webpack --config webpack.config.js",
+    "build:node": "tsc -p tsconfig.json",
+    "build": "npm run build:browser && npm run build:node"
   },
   "dependencies": {
     "jsdom": "^24.1.0"

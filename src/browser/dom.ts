@@ -1,6 +1,4 @@
-// src/browser-dom.ts
-
-import { DOMInterface } from './interfaces/dom-interface';
+import { DOMInterface } from '../interfaces/dom-interface';
 
 export class BrowserDOM implements DOMInterface {
   parseHTML(html: string): Document {

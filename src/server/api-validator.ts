@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Halidator} from '../halidator';
+import { Halidator} from '../core/halidator';
 
 const apiValidator = (req: Request, res: Response) => {
   const { html } = req.body;

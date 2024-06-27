@@ -1,7 +1,7 @@
 // src/node-dom.ts
 
 import { JSDOM } from 'jsdom';
-import { DOMInterface } from './dom-interface';
+import { DOMInterface } from './interfaces/dom-interface';
 
 export class NodeDOM implements DOMInterface {
   private jsdom: JSDOM;
