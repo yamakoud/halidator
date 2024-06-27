@@ -7,7 +7,7 @@ interface ValidationIssue {
   message: string;
 }
 
-class HTMLValidator {
+class Halidator {
   private apiEndpoint: string | null;
 
   constructor(options: ValidatorOptions = {}) {
@@ -72,4 +72,4 @@ class HTMLValidator {
   }
 }
 
-export default HTMLValidator;
+export default Halidator;

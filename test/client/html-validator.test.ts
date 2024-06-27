@@ -1,10 +1,10 @@
-import HTMLValidator from '../../src/client/html-validator';
+import Halidator from '../../src/client/halidator';
 
-describe('HTMLValidator', () => {
-  let validator: HTMLValidator;
+describe('halidator', () => {
+  let validator: Halidator;
 
   beforeEach(() => {
-    validator = new HTMLValidator();
+    validator = new Halidator();
   });
 
   test('detects block element in inline element and suggests p for div with only text', () => {

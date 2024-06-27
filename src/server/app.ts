@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { validateHTML } from '../client/html-validator';
+import Halidator from './../client/halidator';
 
 
 const app = express();
@@ -8,7 +8,8 @@ app.use(bodyParser.text({ type: 'text/html' }));
 
 app.post('/validate', (req, res) => {
   const htmlContent: string = req.body;
-  const results: string[] = validateHTML(htmlContent);
+  // const results: string[] = new Halidator(htmlConten);
+  const results: string[] = [];
   res.json({ errors: results });
 });
 

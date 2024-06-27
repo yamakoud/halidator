@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import HTMLValidator from '../client/html-validator';
+import HTMLValidator from '../client/halidator';
 
 const apiValidator = (req: Request, res: Response) => {
   const { html } = req.body;

@@ -1,4 +1,4 @@
-# tmp-validate-rendered-css-dom
+# halidate
 
 了解しました。完璧でスマートかつシンプルなプロジェクトのREADMEを提供します。このREADMEには、プロジェクトの解決したい課題、方法、および使用方法が明確に記載されています。
 

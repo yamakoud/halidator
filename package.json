@@ -1,4 +1,18 @@
 {
+  "name": "halidator",
+  "version": "0.0.1",
+  "description": "HTML and Layout Inspector and Validator",
+  "main": "dist/halidator.js",
+  "types": "dist/halidator.d.ts",
+  "keywords": [
+    "html",
+    "validator",
+    "inspector",
+    "layout",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
@@ -9,13 +23,15 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "supertest": "^7.0.0",
+    "terser": "^5.31.1",
     "ts-jest": "^29.1.5",
     "typescript": "^5.5.2"
   },
   "scripts": {
-    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build": "tsc && terser dist/client/halidator.js -o dist/halidator.min.js",
+    "prepublishOnly": "npm run build"
   }
 }
