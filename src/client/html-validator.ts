@@ -55,26 +55,19 @@ class HTMLValidator {
   }
 
   private checkInlineElementMisuse(doc: Document, issues: ValidationIssue[]): void {
-    const blockElements = ['div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'];
+    const blockElements = ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'p'];
     blockElements.forEach(blockTag => {
       doc.querySelectorAll(blockTag).forEach((element: Element) => {
         if (element.childNodes.length === 1 && element.firstChild?.nodeType === Node.TEXT_NODE) {
-          issues.push({
-            element: element.outerHTML,
-            message: `Block element <${blockTag}> contains only text. Consider using an inline element instead.`
-          });
+          // pタグは例外として扱う
+          if (blockTag !== 'p') {
+            issues.push({
+              element: element.outerHTML,
+              message: `Block element <${blockTag}> contains only text. Consider using a <p> element instead.`
+            });
+          }
         }
       });
-    });
-
-    // 特定のブロック要素のネストチェック
-    doc.querySelectorAll('div').forEach((div: Element) => {
-      if (div.querySelector('p')) {
-        issues.push({
-          element: div.outerHTML,
-          message: 'A <div> element contains a <p> element. Consider restructuring your HTML.'
-        });
-      }
     });
   }
 }
