@@ -79,3 +79,9 @@ export class Halidator {
 
   // validateViaAPI メソッドは変更なし
 }
+
+export default Halidator;
+
+if (typeof window !== 'undefined') {
+  (window as any).Halidator = Halidator;
+}

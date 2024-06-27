@@ -27,13 +27,16 @@
     "supertest": "^7.0.0",
     "terser": "^5.31.1",
     "ts-jest": "^29.1.5",
-    "typescript": "^5.5.2"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.2",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "tsc && terser dist/client/halidator.js -o dist/halidator.min.js",
+    "build": "webpack",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
