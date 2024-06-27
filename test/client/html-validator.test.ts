@@ -1,4 +1,4 @@
-import Halidator from '../../src/client/halidator';
+import Halidator from '../../src/halidator';
 
 describe('halidator', () => {
   let validator: Halidator;

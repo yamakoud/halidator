@@ -1,1 +1,1 @@
-export * from './src/client/halidator';
+export * from './src/halidator';

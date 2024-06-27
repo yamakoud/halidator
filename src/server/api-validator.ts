@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import HTMLValidator from '../client/halidator';
+import { Halidator} from '../halidator';
 
 const apiValidator = (req: Request, res: Response) => {
   const { html } = req.body;
@@ -8,7 +8,7 @@ const apiValidator = (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Invalid input' });
   }
 
-  const validator = new HTMLValidator();
+  const validator = new Halidator();
   const issues = validator['validateLocally'](html);
 
   res.json(issues);

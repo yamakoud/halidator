@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import Halidator from './../client/halidator';
+import { Halidator } from '../halidator';
 
 
 const app = express();
