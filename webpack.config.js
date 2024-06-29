@@ -1,13 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/browser/index.ts',
-  mode: 'production',
+  target: 'web',
+  entry: './src/index.ts',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
     ],
@@ -16,11 +16,13 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'halidator.min.js',
+    filename: 'halidator.browser.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'Halidator',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
+    library: {
+      name: 'Halidator',
+      type: 'umd',
+      export: 'default',
+    },
     globalObject: 'this',
   },
 };
