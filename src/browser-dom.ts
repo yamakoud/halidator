@@ -1,5 +1,3 @@
-// src/browser-dom.ts
-
 import { DOMInterface } from './interfaces/dom-interface';
 
 export class BrowserDOM implements DOMInterface {
@@ -21,7 +19,8 @@ export class BrowserDOM implements DOMInterface {
   }
 
   isBlockElement(element: Element): boolean {
-    return window.getComputedStyle(element).display === 'block';
+    const display = window.getComputedStyle(element).display;
+    return display === 'block' || display === 'flex' || display === 'grid';
   }
 
   getNodeType(node: Node): number {
