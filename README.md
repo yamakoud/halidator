@@ -9,8 +9,9 @@ Halidatorは、HTML文書を検証するためのJavaScriptライブラリです
 
 現在のプロジェクト進捗
 - ブラウザサポート
-  - bookmarklet での配布（./docs/bookmarklet に存在）
-  - CDN 公開中(https://yamakoud.github.io/halidator/halidator.browser.js)
+  - サイトによっては CSP で弾かれる
+    - bookmarklet での配布（./docs/bookmarklet に存在）
+    - CDN 公開中(https://yamakoud.github.io/halidator/halidator.browser.js)
 
 
 ## 使用方法
