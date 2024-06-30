@@ -2,11 +2,11 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'production',  // または 'development'
   entry: {
     background: './src/chromeExtension/background.ts',
     content: './src/chromeExtension/content.ts',
     popup: './src/chromeExtension/popup.ts',
+    halidator: './src/browser/index.ts',  // Halidator のエントリーポイントを追加
   },
   output: {
     filename: '[name].js',
@@ -29,7 +29,6 @@ module.exports = {
       patterns: [
         { from: 'src/chromeExtension/manifest.json', to: 'manifest.json' },
         { from: 'src/chromeExtension/popup.html', to: 'popup.html' },
-        { from: 'dist/halidator.browser.js', to: 'halidator.browser.js' },
       ],
     }),
   ],
