@@ -10,6 +10,10 @@
     "resolveJsonModule": true,
     "declaration": true
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "src/**/*.ts",
+    "src/chromeExtension/**/*.ts"
+  ],
   "exclude": ["src/browser/**/*", "node_modules", "**/*.test.ts"]
 }

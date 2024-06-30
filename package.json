@@ -55,6 +55,8 @@
     "build:browser": "webpack --config webpack.config.browser.js --mode production",
     "build:node": "tsc -p tsconfig.json",
     "build": "npm run build:browser && npm run build:node",
+    "build:chrome-extension": "webpack --config webpack.config.chrome-extension.js",
+    "build:all": "npm run build && npm run build:chrome-extension",
     "dev:browser": "webpack --config webpack.config.browser.js --mode development --watch",
     "dev:node": "webpack --config webpack.config.node.js --mode development --watch",
     "prepublishOnly": "npm run test && npm run build",
