@@ -1,6 +1,3 @@
-はい、READMEファイルの作成は重要です。以下のような構成でREADME.mdを作成することをお勧めします：
-
-```markdown
 # Halidator
 
 Halidatorは、HTML文書を検証するためのJavaScriptライブラリです。ブラウザ環境とNode.js環境の両方で使用できます。
