@@ -23,8 +23,11 @@ node v22.3.0
 https://github.com/yamakoud/halidator/blob/main/docs/install-extension-locally.md
 
 インストールできたら
+
 ・拡張機能をピン止めする
+
 ・拡張機能をクリック
+
 ・ボタンをクリック
 
 すると今開いているページを検査した結果が出てきます
