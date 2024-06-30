@@ -58,7 +58,8 @@
     "dev:browser": "webpack --config webpack.config.browser.js --mode development --watch",
     "dev:node": "webpack --config webpack.config.node.js --mode development --watch",
     "prepublishOnly": "npm run test && npm run build",
-    "serve": "http-server -p 8080"
+    "serve": "http-server -p 8080",
+    "tsc:noEmit": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "jsdom": "^24.1.0"
