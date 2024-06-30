@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDOM = createDOM;
-var browser_dom_1 = require("./browser-dom");
-var node_dom_1 = require("./node-dom");
-function createDOM() {
+import { BrowserDOM } from './browser-dom';
+import { NodeDOM } from './node-dom';
+export function createDOM() {
     if (typeof window !== 'undefined' && window.document) {
-        return new browser_dom_1.BrowserDOM();
+        return new BrowserDOM();
     }
     else {
-        return new node_dom_1.NodeDOM();
+        return new NodeDOM();
     }
 }

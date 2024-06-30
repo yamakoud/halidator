@@ -1,11 +1,7 @@
-import { JSDOM } from 'jsdom';
-export class NodeDOM {
-    constructor() {
-        this.jsdom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
-    }
+export class BrowserDOM {
     parseHTML(html) {
-        const dom = new JSDOM(html);
-        return dom.window.document;
+        const parser = new DOMParser();
+        return parser.parseFromString(html, 'text/html');
     }
     querySelector(selector, element) {
         return element.querySelector(selector);
@@ -17,8 +13,7 @@ export class NodeDOM {
         return Array.from(element.children);
     }
     isBlockElement(element) {
-        const blockElements = ['div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'];
-        return blockElements.includes(element.tagName.toLowerCase());
+        return window.getComputedStyle(element).display === 'block';
     }
     getNodeType(node) {
         return node.nodeType;

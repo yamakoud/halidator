@@ -1,14 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var validator_1 = require("./core/validator");
-var dom;
+import { Validator } from './core/validator';
+let dom;
 if (typeof window !== 'undefined') {
-    var BrowserDOM = require('./browser/dom').BrowserDOM;
+    const { BrowserDOM } = require('./browser/dom');
     dom = new BrowserDOM();
 }
 else {
-    var NodeDOM = require('./node/dom').NodeDOM;
+    const { NodeDOM } = require('./node/dom');
     dom = new NodeDOM();
 }
-var halidator = new validator_1.Validator(dom);
-exports.default = halidator;
+const halidator = new Validator(dom);
+export default halidator;
