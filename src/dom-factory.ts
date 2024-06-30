@@ -1,5 +1,3 @@
-// src/dom-factory.ts
-
 import { DOMInterface } from './interfaces/dom-interface';
 import { BrowserDOM } from './browser-dom';
 import { NodeDOM } from './node-dom';

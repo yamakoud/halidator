@@ -1,5 +1,3 @@
-// src/dom-interface.ts
-
 export interface DOMInterface {
   parseHTML(html: string): Document;
   querySelector(selector: string, element: Element | Document): Element | null;
