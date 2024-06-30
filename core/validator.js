@@ -95,11 +95,14 @@ var Validator = /** @class */ (function () {
         blockElements.forEach(function (blockTag) {
             _this.dom.querySelectorAll(blockTag, doc).forEach(function (element) {
                 var children = _this.dom.getChildren(element);
-                if (children.length === 0 && _this.dom.getNodeType(element.firstChild) === Node.TEXT_NODE) {
-                    issues.push({
-                        element: _this.dom.getOuterHTML(element),
-                        message: "Block element <".concat(blockTag, "> contains only text. Consider using a <p> element instead.")
-                    });
+                if (children.length === 0 && element.firstChild) {
+                    var nodeType = _this.dom.getNodeType(element.firstChild);
+                    if (nodeType === Node.TEXT_NODE) {
+                        issues.push({
+                            element: _this.dom.getOuterHTML(element),
+                            message: "Block element <".concat(blockTag, "> contains only text. Consider using a <p> element instead.")
+                        });
+                    }
                 }
             });
         });
