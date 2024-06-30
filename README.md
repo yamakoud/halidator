@@ -19,7 +19,8 @@ node v22.3.0
 ### chrome 拡張
 
 下記手順で chrome 拡張を入れます
-/docs/install-extension-locally.md
+
+(/docs/install-extension-locally.md)[/docs/install-extension-locally.md]
 
 インストールできたら
 ・拡張機能をピン止めする
