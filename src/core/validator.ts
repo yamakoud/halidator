@@ -54,11 +54,14 @@ export class Validator {
     blockElements.forEach(blockTag => {
       this.dom.querySelectorAll(blockTag, doc).forEach((element: Element) => {
         const children = this.dom.getChildren(element);
-        if (children.length === 0 && this.dom.getNodeType(element.firstChild!) === Node.TEXT_NODE) {
-          issues.push({
-            element: this.dom.getOuterHTML(element),
-            message: `Block element <${blockTag}> contains only text. Consider using a <p> element instead.`
-          });
+        if (children.length === 0 && element.firstChild) {
+          const nodeType = this.dom.getNodeType(element.firstChild);
+          if (nodeType === Node.TEXT_NODE) {
+            issues.push({
+              element: this.dom.getOuterHTML(element),
+              message: `Block element <${blockTag}> contains only text. Consider using a <p> element instead.`
+            });
+          }
         }
       });
     });
