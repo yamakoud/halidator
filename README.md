@@ -5,6 +5,13 @@
 
 Halidatorは、HTML文書を検証するためのJavaScriptライブラリです。ブラウザ環境とNode.js環境の両方で使用できます。
 
+現在はベータ版です。
+
+現在のプロジェクト進捗
+- ブラウザサポート
+  - bookmarklet での配布（./docs/bookmarklet に存在）
+  - CDN 公開中(https://yamakoud.github.io/halidator/halidator.browser.js)
+
 ## 特徴
 
 - クロスプラットフォーム：ブラウザとNode.jsの両環境で動作
