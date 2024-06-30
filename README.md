@@ -1,6 +1,7 @@
 # Halidator
 
-Halidatorは、HTML文書を検証するためのJavaScriptライブラリです。ブラウザ環境とNode.js環境の両方で使用できます。
+Halidatorは、HTML文書のブロック要素とインライン要素のバッドプラクティスを検出するJavaScriptライブラリです。
+chrome 拡張のみサポートしています。
 
 現在はベータ版です。
 
