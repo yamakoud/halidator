@@ -8,42 +8,28 @@ Halidatorは、HTML文書を検証するためのJavaScriptライブラリです
 現在はベータ版です。
 
 現在のプロジェクト進捗
-- ブラウザサポート
-  - サイトによっては CSP で弾かれる
-    - bookmarklet での配布（./docs/bookmarklet に存在）
-    - CDN 公開中(https://yamakoud.github.io/halidator/halidator.browser.js)
+- ローカルビルドでの chrome 拡張のサポート
+  - store での配布はまだです
 
+
+## 環境
+
+node v22.3.0
 
 ## 使用方法
 
-### ブックマークレット
+### chrome 拡張
 
-Halidatorをブックマークレットとして使用することもできます。以下のコードをブックマークのURLとして保存してください：
-./docs/bookmarklet/validateBody.js
+下記手順で chrome 拡張を入れます
+/docs/install-extension-locally.md
 
-このブックマークレットを読み込むとコンソールのログに検証結果が表示されます
-開発者ツールで確認してください。
-（info を表示するように設定してください）
+インストールできたら
+・拡張機能をピン止めする
+・拡張機能をクリック
+・ボタンをクリック
 
+すると今開いているページを検査した結果が出てきます
 
-## API
-
-### validateHTML(html: string): ValidationResult
-
-HTML文字列を受け取り、検証結果を返します。
-
-```typescript
-interface ValidationResult {
-  isValid: boolean;
-  errors: ValidationError[];
-}
-
-interface ValidationError {
-  message: string;
-  line: number;
-  column: number;
-}
-```
 
 ## 開発
 
