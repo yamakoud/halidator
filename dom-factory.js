@@ -1,5 +1,4 @@
 "use strict";
-// src/dom-factory.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDOM = createDOM;
 var browser_dom_1 = require("./browser-dom");

@@ -1,5 +1,4 @@
 "use strict";
-// src/node-dom.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NodeDOM = void 0;
 var jsdom_1 = require("jsdom");
